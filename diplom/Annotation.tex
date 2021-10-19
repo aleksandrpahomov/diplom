@@ -1,0 +1,99 @@
+% Шапка документа - не менять
+\documentclass[12pt, a4paper]{extarticle}
+\usepackage{amsfonts}
+%\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc}
+\usepackage{mathtext}  
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[russian]{babel}
+\usepackage[body={17.5cm, 23.5cm},left=2cm, top=2cm]{geometry}
+\sloppy
+\binoppenalty=10000
+\relpenalty=10000
+
+
+% Определения некоторых макросов - не менять
+
+% Макросы для ученых степеней
+\newcommand{\kfmn}{{\mdseries канд.~физ.-мат.~наук}}
+\newcommand{\ken}{{\mdseries канд.~эконом.~наук}}
+\newcommand{\kpn}{{\mdseries канд.~пед.~наук}}
+\newcommand{\khn}{{\mdseries канд.~хим.~наук}}
+\newcommand{\dpn}{{\mdseries доктор~пед.~наук}}
+\newcommand{\dfmn}{{\mdseries доктор~физ.-мат.~наук}}
+%ученые звания
+\newcommand{\doc}{{\mdseries доцент}}
+\newcommand{\prof}{{\mdseries профессор}}
+
+%Заголовок аннотации
+\newcommand{\atitle}[1]{\begin{center}{\Large #1\par}\end{center}}
+%автор
+\newcommand{\auth}[2]{\noindent{\bf #1}, #2 курс\addcontentsline{toc}{subsection}{#1}\par}
+%научный руководитель
+\newcommand{\swise}[1]{\noindent Научный руководитель: {\bfseries #1\par}}
+\newcommand{\coswise}[1]{\noindent Соруководитель:  #1\par}
+
+
+% Текств
+\begin{document}
+
+% Название работы, тема курсовой, диплома.
+\atitle{Анализ поведения нелинейной динамической системы в одном критическом случае}
+
+% Фамилия Имя Отчество автора и курс, на котором выполнена работа.
+\auth{Бушуева Татьяна Эдисоновна}{4}
+
+% ученая степень, ученое звание Фамилия и инициалы научного руководителя
+% Ученые степени (расшифровки есть выше):
+% \kfmn, \ken, \kpn, \khn, \dpn, \dfmn
+% если у научного руководителя иная степень, то оформить ее словами - новый макрос заводить не нужно
+% Ученые звания (расшифровки есть выше):
+% \doc, \prof
+% Если у научного руководителя отсутствует ученая степень и/или звание, то не пишется ничего
+\swise{\dfmn, \prof~Кубышкин Е.П.}
+
+\medskip
+
+В $\mathbb{R}^6$ рассматривается нелинейное дифференциальное уравнение
+\begin{equation}\label{formula1}
+\dot {x} = A(\varepsilon) x + F(x),
+\end{equation}
+$A(\varepsilon)$ - матрица, $F(x)$ - вектор-функция $(F(0) = 0, \|F(x)\| = O(\|x\|))$ гладко зависят от своих аргументов при $0 \leqslant \varepsilon \leqslant \varepsilon_0,
+\| x\| \leqslant x_0.$
+Предполагается, что собственные значения матрицы $A(\varepsilon)$ имеют вид
+\begin{equation*}
+\lambda_j(\varepsilon) = \tau_j(\varepsilon) \pm i\omega_j(\varepsilon) \;\; (\tau_j(0) = 0, \omega_j(0) = \omega_j > 0, \;  i = \sqrt{-1}, \; j = 1,2,3),
+\end{equation*}
+
+а между величинами $\omega_j$ выполняется резонансное соотношение
+\begin{equation*}
+\omega_1 = 2\omega_2 - \omega_3 .
+\end{equation*}
+
+Изучается поведение решений уравнения в фиксированной окрестности нулевого состояния равновесия в зависимости от параметров уравнения.
+
+Выполнена нормализация системы уравнений  $(\ref{formula1})$. В результате имеем систему уравнений
+\begin{align}\label{formula2}
+&\dot{z}_j = (\lambda_j(\varepsilon) + a_{j1}(\varepsilon)|z_1|^2 + a_{j2}(\varepsilon)|z_2|^2 + a_{j3}(\varepsilon)|z_3|^2)z_j + \\ \notag
+& + A_j(\varepsilon)z_1^{k_{j1}}z_2^{k_{j2}}z_3^{k_{j3}} + O(|z|^4) \\
+& ( j = 1,2,3 ; \; A_1(\varepsilon)z_2^2\overline{z}_3, A_2(\varepsilon)z_1\overline{z}_2z_3, \;\; A_3(\varepsilon)\overline{z}_1z^2_2). \notag
+\end{align}
+
+Здесь $z_j = x_j + iy_j$ - комплекснозначные переменные $ (j = 1,2,3)$, $|z|^2 = |z_1|^2 +|z_2|^2 +|z_3|^2$, $a_{jk}(\varepsilon) = b_{jk}(\varepsilon) + i c_{jk}(\varepsilon)$ гладкие функции $0 \leq \varepsilon \leq \varepsilon_0.$  
+
+В $(\ref{formula2})$ выполнена замена переменных $z_j = \rho_j e^{i\omega_j\tau_j} \; (j = 1,2,3)$, введены "медленные"\ переменные $\rho_j \;\; (j = 1,2,3), \;\; \Theta = -\omega_1\tau_1 + 2\omega_2\tau_2 - \omega_3\tau_3 $ и  "быстрые"\ переменные  $\tau_1, \tau_2 $. 
+В системе "медленных"\ переменных выполнены нормирующие замены $\rho_j\rightarrow \varepsilon^{1/2}\rho_j$ и время $t \rightarrow \varepsilon^{-1} t$. 
+
+Относительно коэффициентов "главной части"\ уравнения $(\ref{formula2})$ в "медленных"\ переменных  сделано предположение о выполнении условий теоремы А.М. Молчанова$[1]$ (условие диссипативности).
+
+Показано, что в уравнениях "медленных"\ переменных возможно существование различных автоколебательных решений, в том числе и хаотических. Для хаотических решений вычислены показатели Ляпунова и ляпуновская размерность.
+
+\medskip
+
+{\large \noindent Список литературы}
+
+1. Молчанов А.М. Устойчивость в случае нейтральности линейного приближения. ДАН СССР, 1961, т.141, № 1, с. 27.
+
+
+
+\end{document}
